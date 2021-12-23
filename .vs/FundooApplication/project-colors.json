@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3b007027-d4ab-437b-982a-babb7a1d1bbc": {
+      "ProjectGuid": "3b007027-d4ab-437b-982a-babb7a1d1bbc",
+      "DisplayName": "FundooApplication",
+      "ColorIndex": 0
+    },
+    "61ff54c8-6e72-421e-a24f-036596711867": {
+      "ProjectGuid": "61ff54c8-6e72-421e-a24f-036596711867",
+      "DisplayName": "RepositoryLayer",
+      "ColorIndex": 1
+    },
+    "45ee7542-4175-49c9-90fb-e4385d6ba8ba": {
+      "ProjectGuid": "45ee7542-4175-49c9-90fb-e4385d6ba8ba",
+      "DisplayName": "CommonLayer",
+      "ColorIndex": 2
+    },
+    "761b7f2e-4745-4896-8e11-860c8f2c84d7": {
+      "ProjectGuid": "761b7f2e-4745-4896-8e11-860c8f2c84d7",
+      "DisplayName": "BusinessLayer",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}
