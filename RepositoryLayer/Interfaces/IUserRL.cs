@@ -8,9 +8,14 @@ namespace RepositoryLayer.Interfaces
 {
     public interface IUserRL
     {
-        bool Registration(UserRegistarion user);
+        bool Registration(UserRegistration user);
+        IEnumerable<User> GetAllUser();
         LoginResponse GetLogin(UserLogin user1);
+        bool Delete(int id);
+        bool Update(long Id, UpdateUserDetails user);
+        //bool ResetPassword(string email);
+        string ForgotPassword(string email);
 
-
+        string ResetPassword(ResetPasswordModel model);
     }
 }

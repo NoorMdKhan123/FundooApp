@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interfaces;
 using CommonLayer.Model;
 using CommonLayer.Model.ResponseModel;
+using RepositoryLayer;
 using RepositoryLayer.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace BusinessLayer.Services
         {
             this.userRL = userRL;
         }
-        public bool Registration(UserRegistarion user)
+        public bool Registration(UserRegistration user)
         {
             try
             {
@@ -26,19 +27,12 @@ namespace BusinessLayer.Services
             {
                 throw;
             }
-
-
-
-
-
-
         }
-
-        public LoginResponse GetLogin(UserLogin user1)
+        public LoginResponse GetLogin(UserLogin credentials)
         {
             try
             {
-                return this.userRL.GetLogin(user1);
+                return this.userRL.GetLogin(credentials);
 
             }
             catch (Exception e)
@@ -46,5 +40,64 @@ namespace BusinessLayer.Services
                 throw;
             }
         }
+
+        public IEnumerable<User> GetAllUser()
+        {
+            
+                return this.userRL.GetAllUser();
+            
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                return this.userRL.Delete(id);
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public bool Update( int id, UpdateUserDetails user)
+        {
+            try
+            {
+                return this.userRL.Update(id, user);
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        
+        public string ForgotPassword(string email)
+        {
+            try
+            {
+                return this.userRL.ForgotPassword(email);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public string ResetPassword(ResetPasswordModel model)
+        {
+            try
+            {
+                return this.userRL.ResetPassword(model);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
+
+
 }

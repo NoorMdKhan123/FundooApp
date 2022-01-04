@@ -27,6 +27,8 @@ namespace CommonLayer.Model.ResponseModel
        
         public DateTime? Modifiedat { get; set; }
 
+        public string token { get; set; }
+
 
     }
 }
