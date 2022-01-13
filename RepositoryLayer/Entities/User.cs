@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepositoryLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -33,7 +34,7 @@ namespace RepositoryLayer
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         [Display(Name = "Password:")]
-        [StringLength(30, MinimumLength = 6, ErrorMessage = "Password contain six Character")]
+        [StringLength(20000, MinimumLength = 7, ErrorMessage = "Password contain five Character")]
         public string Password { get; set; }
 
         [DataType(DataType.DateTime)]
@@ -42,8 +43,9 @@ namespace RepositoryLayer
         [DataType(DataType.DateTime)]
         public DateTime? Modifiedat { get; set; }
 
-        public ICollection<Notes> Notes { get; set;}
+       
 
+        public ICollection<Collaborator> collaborators { get; set; }
 
 
     }

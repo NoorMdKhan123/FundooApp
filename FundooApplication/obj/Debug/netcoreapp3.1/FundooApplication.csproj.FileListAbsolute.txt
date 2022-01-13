@@ -1,3 +1,9 @@
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.AssemblyInfo.cs
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\FundooApplication.exe
@@ -6,6 +12,7 @@ C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bi
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\FundooApplication.runtimeconfig.dev.json
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\FundooApplication.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\FundooApplication.pdb
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Experimental.System.Messaging.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\MailKit.dll
@@ -20,6 +27,9 @@ C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bi
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.Extensions.WebEncoders.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
@@ -39,6 +49,7 @@ C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bi
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
@@ -53,13 +64,6 @@ C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bi
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\CommonLayer.pdb
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.csproj.AssemblyReference.cache
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.AssemblyInfoInputs.cache
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.AssemblyInfo.cs
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.csproj.CoreCompileInputs.cache
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\staticwebassets\FundooApplication.StaticWebAssets.Manifest.cache
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.RazorTargetAssemblyInfo.cache
 C:\Users\User\source\repos\CPF\FundooNote\FundooApplication\FundooApplication\obj\Debug\netcoreapp3.1\FundooApplication.csproj.CopyComplete

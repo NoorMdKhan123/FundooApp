@@ -7,8 +7,7 @@ namespace CommonLayer.Model
 {
     public class AddingNotes
     {
-        public long NotesId { get; set; }
-       
+        public long Id { get; set; } 
         public string Title { get; set; }
 
         public string TakeANote { get; set; }
@@ -28,7 +27,8 @@ namespace CommonLayer.Model
         [DefaultValue(false)]
         public bool IsNotePinned { get; set; }
 
-        public long Id { get; set; }
+
+        
     }
 }
 

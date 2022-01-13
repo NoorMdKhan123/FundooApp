@@ -21,14 +21,22 @@ namespace FundooApplication.Controllers
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     /// 
-    
-    [Route("Api/[controller]")]
+
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
+
+        /// <summary>
+        /// The user bl
+        /// </summary>
         private readonly IUserBL userBL;
         private IConfiguration _config;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserController"/> class.
+        /// </summary>
+        /// <param name="userBL">The user bl.</param>
+        /// <param name="_config">The configuration.</param>
         public UserController(IUserBL userBL, IConfiguration _config)
         {
             this.userBL = userBL;
@@ -38,23 +46,25 @@ namespace FundooApplication.Controllers
         /// Gets all user.
         /// </summary>
         /// <returns></returns>
+
         [Authorize]
-        [HttpGet("UserDetails")]
+        [HttpGet("allUsers")]
         public IActionResult GetAllUser()
         {
 
             try
             {
-                var userDetails = this.userBL.GetAllUser();
+                var userDetails = this.userBL.Users();
                 if (userDetails == null)
                 {
                     return this.BadRequest(new { Success = false, message = " User records not found" });
                 }
                 return this.Ok(new { Success = true, message = "User records found", userdata = userDetails });
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return this.BadRequest(new { Success = false, message = e.Message });
+                return this.NotFound(new { Status = false, Message = ex.Message, StackTraceException = ex.StackTrace });
+
             }
         }
         /// <summary>
@@ -62,39 +72,39 @@ namespace FundooApplication.Controllers
         /// </summary>
         /// <param name="user">The user.</param>
         /// <returns></returns>
-        [HttpPost("Register")]
+        [Authorize]
+        [HttpPost("register")]
         public IActionResult UserRegistration(UserRegistration user)
         {
             try
             {
                 if (this.userBL.Registration(user))
                 {
-                    return this.Ok(new { Success = true, message = "Registration Succesful" });
-
+                    return this.Ok(new { Success = true, message = "Registration Succesful", Data = user });
                 }
                 else
                 {
                     return this.BadRequest(new { Success = false, message = "Registration Unsuccesful" });
-
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return this.BadRequest(new { Success = false, message = e.Message });
+                return this.NotFound(new { Status = false, Message = ex.Message, StackTraceException = ex.StackTrace });
+
             }
         }
+
         /// <summary>
         /// Gets the login.
         /// </summary>
         /// <param name="credentials">The credentials.</param>
         /// <returns></returns>
-        [HttpPost("Login")]
+        [HttpPost("login")]
         public IActionResult GetLogin([FromBody] UserLogin credentials)
         {
             try
             {
-
-                LoginResponse result = this.userBL.GetLogin(credentials);
+                LoginResponse result = this.userBL.Login(credentials);
                 if (result.EmailId == null)
                 {
                     return BadRequest(new { Success = false, message = "Email or Password not Found" });
@@ -111,144 +121,117 @@ namespace FundooApplication.Controllers
         /// </summary>
         /// <param name="Id">The identifier.</param>
         /// <returns></returns>
-        [HttpDelete("DeleteById")]
+        [HttpDelete("{Id}")]
+
         public IActionResult Delete(int Id)
         {
-            try {
-
-
-
-
-                if (this.userBL.Delete(Id))
+            try
+            {
+                if (this.userBL.DeleteARecord(Id))
                 {
-                    return this.Ok(new { Success = true, message = "Records Deletes Succesfully" });
+                    return this.Ok(new { Success = true, message = "Record Deleted Succesfully" });
 
                 }
-                return this.BadRequest(new { Success = false, message = " Unsuccesful" });
+                return this.BadRequest(new { Success = false, message = "Unsuccesful deletion of record" });
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return this.BadRequest(new { Success = false, message = e.Message });
-
+                return this.NotFound(new { Status = false, Message = ex.Message, StackTraceException = ex.StackTrace });
             }
-
-         }
+        }
         /// <summary>
         /// Updates the specified identifier.
         /// </summary>
         /// <param name="Id">The identifier.</param>
         /// <param name="user">The user.</param>
         /// <returns></returns>
-        [HttpPut("UpdateDetails")]
+
+        [HttpPut("update/{Id}")]
         public IActionResult Update(int Id, UpdateUserDetails user)
         {
             try
             {
 
-                if (this.userBL.Update(Id, user))
+                if (this.userBL.UpdateARecord(Id, user))
                 {
-                    return this.Ok(new { Success = true, message = "Records Updated Succesfully" });
+                    return this.Ok(new { Success = true, message = "Records Updated Succesfully", data = user });
                 }
-                return this.BadRequest(new { Success = false, message = " No data to update" });
+                return this.BadRequest(new { Success = false, message = "No data to update" });
             }
             catch (Exception e)
             {
-                return this.BadRequest(new { Success = false, message = e.Message });
+                return this.BadRequest(new { Success = false, message = e.Message, StackTraceException = e.StackTrace });
 
             }
-
-
         }
-        //[HttpGet]
-        //public IActionResult ResetPassword(string email)
-        //{
-        //    try
-        //    {
 
-        //        if (this.userBL.ResetPassword(email))
-        //        {
-        //            return this.Ok(new { Success = true, message = "Reset link sent successfully" });
-        //        }
-        //        return this.BadRequest(new { Success = false, message = "Email Id not found" });
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return this.BadRequest(new { Success = false, message = e.Message });
 
-        //    }
-        //}
-        [HttpPost("ForgotPassword")]
-        
+
+        /// <summary>
+        /// Forgots the password.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
+        [HttpPost("forgotPassword/{email}")]
         public IActionResult ForgotPassword(string email)
         {
             try
             {
-                string result = this.userBL.ForgotPassword(email);
+                string result = this.userBL.ForgotAPassword(email);
                 if (result.Equals("Email is sent sucessfully"))
                 {
-                    return this.Ok(new ResponseModl<string>() { Status = true, Message = result });
+                    return this.Ok(new { Status = true, Message = "Email sent successfully to reset password", Data = email });
                 }
                 else
                 {
-                    return this.BadRequest(new ResponseModl<string>() { Status = false, Message = result });
+                    return this.BadRequest(new { Status = false, Message = "Password not Uppdated", Data = result });
                 }
             }
             catch (Exception ex)
             {
-                return this.NotFound(new ResponseModl<string>() { Status = false, Message = ex.Message });
+                return this.NotFound(new { Status = false, Message = ex.Message, StackTraceException = ex.StackTrace });
             }
 
         }
-        [HttpPut("ResetPassword")]
-        
+
+
+        /// <summary>
+        /// Resets the password.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost("resetPassword")]
         public IActionResult ResetPassword([FromBody] ResetPasswordModel model)
         {
             try
             {
-                string value = this.userBL.ResetPassword(model);
-                if (value.Equals("Got an email"))
+                var value = this.userBL.ResetAPassword(model);
+                if (value.Equals("Password is updated"))
                 {
-                    return this.Ok(new ResponseModl<string>() { Status = true, Message = value });
+                    return this.Ok(new { Status = true, Message = "Reseted susccessfully ", Data = model });
                 }
                 else
                 {
-                    return this.BadRequest(new ResponseModl<string>() { Status = false, Message = value });
+                    return this.BadRequest(new { Status = false, Message = "Not done reset" });
                 }
             }
             catch (Exception ex)
             {
-                return this.NotFound(new ResponseModl<string>() { Status = false, Message = ex.Message });
+                return this.NotFound(new { Status = false, Message = ex.Message, StackTraceException = ex.StackTrace });
             }
         }
+    }
+}
 
 
 
 
         
-        //[HttpDelete("{id:int}")]
-        //public async Task<ActionResult<User>> DeleteEmployee(int id)
-        //{
-        //    try
-        //    {
-        //        var employeeToDelete = await employeeRepository.GetEmployee(id);
-
-        //        if (employeeToDelete == null)
-        //        {
-        //            return NotFound($"Employee with Id = {id} not found");
-        //        }
-
-        //        return await employeeRepository.DeleteEmployee(id);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError,
-        //            "Error deleting data");
-        //    }
-        //}
-    }
-}
-
+        
+   
 
 
 

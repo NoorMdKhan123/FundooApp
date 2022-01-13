@@ -11,11 +11,23 @@ namespace BusinessLayer.Services
 {
     public class UserBL : IUserBL
     {
+        /// <summary>
+        /// The user rl
+        /// </summary>
         IUserRL userRL;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserBL"/> class.
+        /// </summary>
+        /// <param name="userRL">The user rl.</param>
         public UserBL(IUserRL userRL)
         {
             this.userRL = userRL;
         }
+        /// <summary>
+        /// Registrations the specified user.
+        /// </summary>
+        /// <param name="user">The user.</param>
+        /// <returns></returns>
         public bool Registration(UserRegistration user)
         {
             try
@@ -28,11 +40,16 @@ namespace BusinessLayer.Services
                 throw;
             }
         }
-        public LoginResponse GetLogin(UserLogin credentials)
+        /// <summary>
+        /// Gets the login.
+        /// </summary>
+        /// <param name="credentials">The credentials.</param>
+        /// <returns></returns>
+        public LoginResponse Login(UserLogin credentials)
         {
             try
             {
-                return this.userRL.GetLogin(credentials);
+                return this.userRL.Login(credentials);
 
             }
             catch (Exception e)
@@ -41,18 +58,18 @@ namespace BusinessLayer.Services
             }
         }
 
-        public IEnumerable<User> GetAllUser()
+        public IEnumerable<User> Users()
         {
             
-                return this.userRL.GetAllUser();
+                return this.userRL.Users();
             
         }
 
-        public bool Delete(int id)
+        public bool DeleteARecord(int id)
         {
             try
             {
-                return this.userRL.Delete(id);
+                return this.userRL.DeleteARecord(id);
 
             }
             catch (Exception e)
@@ -60,11 +77,11 @@ namespace BusinessLayer.Services
                 throw;
             }
         }
-        public bool Update( int id, UpdateUserDetails user)
+        public bool UpdateARecord( int id, UpdateUserDetails user)
         {
             try
             {
-                return this.userRL.Update(id, user);
+                return this.userRL.UpdateARecord(id, user);
 
             }
             catch (Exception e)
@@ -74,11 +91,11 @@ namespace BusinessLayer.Services
         }
 
         
-        public string ForgotPassword(string email)
+        public string ForgotAPassword(string email)
         {
             try
             {
-                return this.userRL.ForgotPassword(email);
+                return this.userRL.ForgotAPassword(email);
             }
             catch (Exception ex)
             {
@@ -86,11 +103,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public string ResetPassword(ResetPasswordModel model)
+        public string ResetAPassword(ResetPasswordModel model)
         {
             try
             {
-                return this.userRL.ResetPassword(model);
+                return this.userRL.ResetAPassword(model);
             }
             catch (Exception ex)
             {

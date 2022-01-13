@@ -1,4 +1,5 @@
 ﻿using CommonLayer.Model;
+using RepositoryLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,13 @@ namespace RepositoryLayer
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public long NotesId { get; set; }
-        public User user { get; set; }
 
-        [ForeignKey("Users")]
-        public long Id { get; set; }
+        //inluding reference navigation property of the type User in Notes entity class.
+
+
+        //Foreign Key comumn in notesTable match a Primary Key in Users table.
+
+
         public string Title { get; set; }
 
         public string TakeANote { get; set; }
@@ -36,8 +40,28 @@ namespace RepositoryLayer
 
         [DefaultValue(false)]
         public bool IsNotePinned { get; set; }
+
+        public long Id { get; set; }
+
+        public ICollection<Collaborator> collaborators { get; set; }
+
+        public ICollection<Label> labels { get; set; }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
 

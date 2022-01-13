@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using RepositoryLayer.Interfaces;
 using RepositoryLayer.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace FundooApplication
 {
@@ -34,6 +35,10 @@ namespace FundooApplication
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<INotesBL, NotesBL>();
             services.AddTransient<INotesRL, NotesRL>();
+            services.AddTransient<ICollaboratorBL, CollaboratorBL>();
+            services.AddTransient<ICollaboratorRL, CollaboratorRL>();
+            services.AddTransient<ILabelBL, LabelBL>();
+            services.AddTransient<ILabelRL, LabelRL>();
             services.AddDbContext<Context>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:FundDB"]));
             services.AddControllers();
 
@@ -44,7 +49,7 @@ namespace FundooApplication
                 swagger.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "JWT Token Authentication API",
+                    Title = "Fundoo App",
                     Description = "ASP.NET Core 3.1 Web API"
                 });
                 // To Enable authorization using Swagger (JWT)  
@@ -104,6 +109,7 @@ namespace FundooApplication
             {
                 app.UseDeveloperExceptionPage();
             }
+            
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FundooApplication v1"));
@@ -116,10 +122,14 @@ namespace FundooApplication
 
             app.UseAuthorization();
 
+           
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            
         }
     }
 }
